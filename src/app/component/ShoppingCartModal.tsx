@@ -1,5 +1,5 @@
 'use client'
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, useEffect } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
 import {
   Sheet,
