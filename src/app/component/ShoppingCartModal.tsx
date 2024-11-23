@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import React, { MouseEvent } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
 import {
@@ -22,6 +21,8 @@ const ShoppingCartModal: React.FC = () => {
     totalPrice,
     redirectToCheckout,
   } = useShoppingCart();
+
+  console.log(cartDetails);
 
   // Handle redirect to checkout
   async function handleCheckout(event: MouseEvent<HTMLButtonElement>) {
@@ -49,46 +50,55 @@ const ShoppingCartModal: React.FC = () => {
                   <div className="flex flex-col justify-center mx-auto py-2">
                     <AiOutlineShopping size={100} className="mx-auto" />
                     <h1 className="py-3 text-[24px] text-center">
-                      You don&apos;t have any items
+                      You don't have any items
                     </h1>
                   </div>
                 ) : (
-                  Object.values(cartDetails ?? {}).map((entry) => (
-                    <li key={entry.id} className="py-6 flex">
-                      <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                        <Image
-                          src={entry.image as string}
-                          alt="Product Image"
-                          width={100}
-                          height={100}
-                        />
-                      </div>
-                      <div className="ml-4 flex flex-1 flex-col">
-                        <div>
-                          <div className="flex justify-between text-base font-medium text-gray-900 max-sm:flex-col">
-                            <h3>{entry.name}</h3>
-                            <p className="ml-4 max-sm:ml-0 max-sm:my-1">
-                              #{entry.price}
+                  <>
+                    {Object.values(cartDetails ?? {}).map((entry) => (
+                      <li key={entry.id} className="py-6 flex">
+                        <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                          <Image
+                            src={entry.image as string}
+                            alt="Product Image"
+                            width={100}
+                            height={100}
+                          />
+                        </div>
+                        <div className="ml-4 flex flex-1 flex-col">
+                          <div>
+                            <div className="flex justify-between text-base font-medium text-gray-900 max-sm:flex-col">
+                              <h3>{entry.name}</h3>
+                              <p className="ml-4 max-sm:ml-0 max-sm:my-1">
+                                #{entry.price}
+                              </p>
+                            </div>
+                            <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                              {entry.details}
                             </p>
                           </div>
-                          <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                            {entry.details}
-                          </p>
-                        </div>
 
-                        <div className="mt-[2px] flex flex-1 items-center justify-between text-sm">
-                          <p className="text-gray-500">QTY {entry.quantity}</p>
-                          <button
-                            type="button"
-                            className="font-medium text-black hover:text-black/80"
-                            onClick={() => removeItem(entry.id)}
-                          >
-                            Remove
-                          </button>
+                          <div className="mt-[2px] flex flex-1 items-center justify-between text-sm">
+                            <p className="text-gray-500">
+                              QTY {entry.quantity}
+                            </p>
+
+                            <div className="flex">
+                              <button
+                                type="button"
+                                className="font-medium text-black hover:text-black/80"
+                                onClick={() => {
+                                  removeItem(entry.id);
+                                }}
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  ))
+                      </li>
+                    ))}
+                  </>
                 )}
               </ul>
             </div>
