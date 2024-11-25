@@ -8,6 +8,7 @@ import stripe from './stripe.png';
 import john from './john.png'
 import jane from './jane.png'
 import kelvin from './kelvin.png'
+import authimg from './ecomImage.avif'
 const assets = {
 logo,
 searchlogo,
@@ -18,6 +19,7 @@ visacard,
 stripe,
 john,
 jane,
-kelvin
+kelvin,
+authimg
 }
 export default assets;

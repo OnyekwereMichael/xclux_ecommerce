@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className='bg-black py-10 mt-[44px] px-10 max-sm:px-5 '>
+    <footer className='bg-black py-10  px-10 max-sm:px-5 '>
       <section className='flex justify-around max-sm:flex-col-reverse'>
         <section className='grid grid-cols-2  gap-10 max-sm:'>
           <div className='flex  gap-10 max-sm:flex-col-reverse'>

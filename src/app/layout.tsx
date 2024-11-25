@@ -39,7 +39,7 @@ export default function RootLayout({
           <Toaster />
             <Navbar />
             <ShoppingCartModal />
-            <div className="mt-14 max-sm:mt-18">
+            <div className="mt-14 mb-[44px] max-sm:mt-18">
             {children}
             </div>
             <Footer />
