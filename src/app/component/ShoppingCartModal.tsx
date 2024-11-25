@@ -1,5 +1,6 @@
-'use client'
-import React, { MouseEvent } from 'react';
+'use client';
+
+import React, { MouseEvent, useContext } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
 import {
   Sheet,
@@ -13,19 +14,17 @@ import Image from 'next/image';
 const ShoppingCartModal: React.FC = () => {
   // Destructure necessary properties from `useShoppingCart`
   const {
-    cartCount,
+    cartCount = 0, // Default to 0 to avoid undefined errors
     shouldDisplayCart,
     handleCartClick,
-    cartDetails,
+    cartDetails = {}, // Default to an empty object
     removeItem,
-    totalPrice,
+    totalPrice = 0, // Default to 0
     redirectToCheckout,
   } = useShoppingCart();
 
-  console.log(cartDetails);
-
   // Handle redirect to checkout
-  async function handleCheckout(event: MouseEvent<HTMLButtonElement>) {
+  const handleCheckout = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     try {
       const result = await redirectToCheckout();
@@ -33,11 +32,11 @@ const ShoppingCartModal: React.FC = () => {
     } catch (error) {
       console.error('Checkout error:', error);
     }
-  }
+  };
 
   return (
     <div>
-      <Sheet open={shouldDisplayCart} onOpenChange={() => handleCartClick()}>
+      <Sheet open={shouldDisplayCart} onOpenChange={handleCartClick}>
         <SheetContent className="sm:max-w-lg w-[90vw]">
           <SheetHeader>
             <SheetTitle>Shopping Cart</SheetTitle>
@@ -54,51 +53,44 @@ const ShoppingCartModal: React.FC = () => {
                     </h1>
                   </div>
                 ) : (
-                  <>
-                    {Object.values(cartDetails ?? {}).map((entry) => (
-                      <li key={entry.id} className="py-6 flex">
-                        <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                          <Image
-                            src={entry.image as string}
-                            alt="Product Image"
-                            width={100}
-                            height={100}
-                          />
-                        </div>
-                        <div className="ml-4 flex flex-1 flex-col">
-                          <div>
-                            <div className="flex justify-between text-base font-medium text-gray-900 max-sm:flex-col">
-                              <h3>{entry.name}</h3>
-                              <p className="ml-4 max-sm:ml-0 max-sm:my-1">
-                                #{entry.price}
-                              </p>
-                            </div>
-                            <p className="mt-1 text-sm text-gray-500 line-clamp-2">
-                              {entry.details}
+                  Object.values(cartDetails).map((entry) => (
+                    <li key={entry.id} className="py-6 flex">
+                      <div className="w-24 h-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                        <Image
+                          src={entry.image as string}
+                          alt="Product Image"
+                          width={100}
+                          height={100}
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="ml-4 flex flex-1 flex-col">
+                        <div>
+                          <div className="flex justify-between text-base font-medium text-gray-900 max-sm:flex-col">
+                            <h3>{entry.name}</h3>
+                            <p className="ml-4 max-sm:ml-0 max-sm:my-1">
+                              #{entry.price}
                             </p>
                           </div>
-
-                          <div className="mt-[2px] flex flex-1 items-center justify-between text-sm">
-                            <p className="text-gray-500">
-                              QTY {entry.quantity}
-                            </p>
-
-                            <div className="flex">
-                              <button
-                                type="button"
-                                className="font-medium text-black hover:text-black/80"
-                                onClick={() => {
-                                  removeItem(entry.id);
-                                }}
-                              >
-                                Remove
-                              </button>
-                            </div>
+                          <p className="mt-1 text-sm text-gray-500 line-clamp-2">
+                            {entry.details}
+                          </p>
+                        </div>
+                        <div className="mt-[2px] flex flex-1 items-center justify-between text-sm">
+                          <p className="text-gray-500">QTY {entry.quantity}</p>
+                          <div className="flex">
+                            <button
+                              type="button"
+                              className="font-medium text-black hover:text-black/80"
+                              onClick={() => removeItem(entry.id)}
+                            >
+                              Remove
+                            </button>
                           </div>
                         </div>
-                      </li>
-                    ))}
-                  </>
+                      </div>
+                    </li>
+                  ))
                 )}
               </ul>
             </div>
@@ -106,7 +98,7 @@ const ShoppingCartModal: React.FC = () => {
             <div className="border-t border-gray-200 px-4 py-6 max-sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal:</p>
-                <p>{totalPrice?.toFixed(2)}</p>
+                <p>#{totalPrice.toFixed(2)}</p>
               </div>
               <p className="text-sm mt-0.5">
                 Shipping and taxes are calculated at checkout
@@ -123,10 +115,16 @@ const ShoppingCartModal: React.FC = () => {
 
               <div
                 className="mt-6 flex justify-center text-center text-sm text-gray-500"
-                onClick={() => handleCartClick()}
+                onClick={handleCartClick}
               >
                 <p>
-                  OR <button>Continue Shopping</button>
+                  OR{' '}
+                  <button
+                    className="font-medium text-black hover:underline"
+                    type="button"
+                  >
+                    Continue Shopping
+                  </button>
                 </p>
               </div>
             </div>
