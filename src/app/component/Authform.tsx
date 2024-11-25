@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import assets from '@/assets/asset';
+import { useState } from 'react';
 
-export default function Authform() {
+export default function Authform({type}:{type: string}) {
+  const [user, setUser] = useState(null)
   return (
     <div className="h-screen w-[98vw] flex overflow-hidden">
       {/* Left Section (Image) */}

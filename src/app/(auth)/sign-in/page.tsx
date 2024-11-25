@@ -1,8 +1,10 @@
+import Authform from "@/app/component/Authform"
+
 const Signin = () => {
   return (
     <div>
        <section className='signIn'>
-           {/* <Authform type='sign-in'/> */}
+           <Authform type='sign-in'/>
            <p>Sign up</p>
        </section>
     </div>

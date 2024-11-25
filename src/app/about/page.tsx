@@ -33,7 +33,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-black via-gray-900 to-gray-800 text-white py-16 px-6 max-sm:px-3 max-sm:py-7">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold">About Us</h1>
+          <h1 className="text-4xl md:text-6xl font-extrabold">Discover Our Story 😊</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto">
             We&apos;re on a mission to redefine your shopping experience and set new
             standards in the industry.

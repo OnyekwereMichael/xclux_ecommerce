@@ -4,7 +4,7 @@ const SignUp = async () => {
   return (
     <div>
        <section className='signIn'>
-           <Authform />
+           <Authform type ='sign-up'/>
            <p>Sign In</p>
        </section>
     </div>
