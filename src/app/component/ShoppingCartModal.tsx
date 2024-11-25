@@ -1,6 +1,6 @@
 'use client';
 
-import React, { MouseEvent, useContext } from 'react';
+import React, { MouseEvent } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
 import {
   Sheet,
@@ -10,16 +10,16 @@ import {
 } from '../../components/ui/sheet';
 import { useShoppingCart } from 'use-shopping-cart';
 import Image from 'next/image';
+import toast from 'react-hot-toast';
 
 const ShoppingCartModal: React.FC = () => {
-  // Destructure necessary properties from `useShoppingCart`
   const {
-    cartCount = 0, // Default to 0 to avoid undefined errors
+    cartCount = 0, 
     shouldDisplayCart,
     handleCartClick,
-    cartDetails = {}, // Default to an empty object
+    cartDetails = {}, 
     removeItem,
-    totalPrice = 0, // Default to 0
+    totalPrice = 0, 
     redirectToCheckout,
   } = useShoppingCart();
 
@@ -29,6 +29,11 @@ const ShoppingCartModal: React.FC = () => {
     try {
       const result = await redirectToCheckout();
       console.log(result);
+      toast.success('Moving to Checkout!', {
+        position: 'bottom-center',
+        duration: 3000,
+        icon: '🛒',
+      });
     } catch (error) {
       console.error('Checkout error:', error);
     }
@@ -82,7 +87,10 @@ const ShoppingCartModal: React.FC = () => {
                             <button
                               type="button"
                               className="font-medium text-black hover:text-black/80"
-                              onClick={() => removeItem(entry.id)}
+                              onClick={
+                                () => removeItem(entry.id)
+                                
+                              }
                             >
                               Remove
                             </button>
