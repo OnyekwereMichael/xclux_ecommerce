@@ -16,7 +16,6 @@ export interface  ProductCart {
 }
 const AddtoBag = ({currency, price, details, image, name, price_id}:ProductCart) => {
     console.log(urlFor(image).url());
-    
     const Product = {
       name: name,
       details: details,

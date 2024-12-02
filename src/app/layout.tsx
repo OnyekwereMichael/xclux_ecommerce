@@ -6,40 +6,46 @@ import Footer from "./component/Footer";
 import CartProvider from "./component/Providers";
 import ShoppingCartModal from "./component/ShoppingCartModal";
 import { Toaster } from "react-hot-toast";
+import { getLoggedInUser } from "./lib/action/user.server";
+import { redirect } from "next/navigation";
 
 
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+
+
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Xclux",
   description: "Xclux Ecommerce",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const loggedIn = await getLoggedInUser()
+  // if(!loggedIn) redirect('/sign-in')
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <CartProvider>
           <Toaster />
-            <Navbar />
+          
+            <Navbar user={loggedIn} />
             <ShoppingCartModal />
-            <div className="mt-14 mb-[44px] max-sm:mt-18">
+            <div className=" max-sm:mt-18">
             {children}
             </div>
             <Footer />
@@ -47,4 +53,5 @@ export default function RootLayout({
       </body>
     </html>
   );
+
 }

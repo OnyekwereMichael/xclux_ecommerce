@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import assets from '../../assets/asset';
+import assets from '../../../assets/asset';
 import Image from 'next/image';
-import { client } from '../lib/client';
+import { client } from '../../lib/client';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
@@ -68,7 +68,7 @@ const pathName = usePathname()
   }
 
   return (
-    <div className="relative px-10 max-sm:px-0">
+    <div className="relative px-10 max-sm:px-0 mt-14 ">
       <div className="relative max-h-[3840px] h-[calc(100%-58px)] max-sm:max-h-[1000px] max-sm:h-[calc(100%-48px)]">
         <Image
           src={banner.imageUrl}

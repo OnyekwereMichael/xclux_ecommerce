@@ -5,9 +5,14 @@ import { FaInstagram } from 'react-icons/fa';
 import { IoIosArrowForward } from 'react-icons/io';
 import assets from '@/assets/asset';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 
 const Footer = () => {
+  const pathName = usePathname();
+  const hideNavbarRoutes = ['/sign-in', '/sign-up', '/'];
+  if (hideNavbarRoutes.includes(pathName)) return null;
+
   return (
     <footer className='bg-black py-10  px-10 max-sm:px-5 '>
       <section className='flex justify-around max-sm:flex-col-reverse'>

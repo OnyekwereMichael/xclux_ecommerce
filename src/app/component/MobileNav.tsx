@@ -25,7 +25,7 @@ const MobileNav = () => {
         <div>
           <Sheet>
             <SheetTrigger><HiMenu size={24} className='text-white' /></SheetTrigger>
-            <SheetContent side='left' className="bg-black opacity-80 h-[65%] ">
+            <SheetContent side='left' className="bg-black opacity-80 h-[50%] ">
               <SheetHeader>
                 <SheetTitle>
                   <p className='text-[20px] font-semibold text-white my-5'>Shop All Items</p>

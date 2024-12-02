@@ -28,8 +28,7 @@ export default function Success() {
 
   }, []);
   return (
-    <div className="bg-gradient-to-r from-teal-100 to-pink-100 min-h-screen flex items-center justify-center">
-      <div className="container mx-auto px-4">
+    <div className="bg-gradient-to-r from-gray-900 to-black min-h-screen flex items-center justify-center">     <div className="container mx-auto px-4">
         <div className="max-w-lg mx-auto bg-white shadow-lg rounded-lg overflow-hidden relative">
           <div className="flex flex-col items-center px-6 py-8">
             {/* Success Icon */}

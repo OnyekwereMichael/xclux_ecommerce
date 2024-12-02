@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ai';
 import React, { useState, useEffect } from 'react';
 import { client } from '../../lib/client';
-import Product from '../../component/Product';
+import Product from '../../component/Home/Product';
 import { Loader2 } from 'lucide-react';
 import AddtoBag from '../../component/AddtoBag';
 import Image from 'next/image';
@@ -77,7 +77,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
   }
 
   return (
-    <div>
+    <div className='mt-14 mb-[44px]'>
       <div className="product-detail-container">
         <div>
           <div className="product-detail-image hover:transition-all hover:duration-500">

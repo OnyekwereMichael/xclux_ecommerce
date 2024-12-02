@@ -5,7 +5,7 @@ const Signin = () => {
     <div>
        <section className='signIn'>
            <Authform type='sign-in'/>
-           <p>Sign up</p>
+           {/* <p>Sign up</p> */}
        </section>
     </div>
   )
