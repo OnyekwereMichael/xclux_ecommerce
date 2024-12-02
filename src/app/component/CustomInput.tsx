@@ -11,10 +11,9 @@ interface CustomInputProps {
   name: string
   label: string
   placeHolder: string
-  id?: string
 }
 
-const CustomInput = ({form, name, label, placeHolder, id}: CustomInputProps) => {
+const CustomInput = ({form, name, label, placeHolder}: CustomInputProps) => {
   return (
     <div>
        <FormField

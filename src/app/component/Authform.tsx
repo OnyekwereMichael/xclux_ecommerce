@@ -124,14 +124,14 @@ export default  function Authform({type}:{type: string}) {
                   <>
                     <div className="grid grid-cols-2 gap-4">
                       <CustomInput
-                        id="firstName"
+                       
                         form={form.control}
                         name="firstName"
                         placeHolder="Enter your first name"
                         label="First Name"
                       />
                       <CustomInput
-                        id="lastName"
+                        
                         form={form.control}
                         name="lastName"
                         placeHolder="Enter your last name"
@@ -139,14 +139,14 @@ export default  function Authform({type}:{type: string}) {
                       />
                     </div>
                     <CustomInput
-                      id="address1"
+                      
                       form={form.control}
                       name="address1"
                       placeHolder="Enter your specific address"
                       label="Address"
                     />
                     <CustomInput
-                      id="city"
+                      
                       form={form.control}
                       name="city"
                       placeHolder="Enter your city"
@@ -154,14 +154,14 @@ export default  function Authform({type}:{type: string}) {
                     />
                     <div className="grid grid-cols-2 gap-4">
                       <CustomInput
-                        id="state"
+                        
                         form={form.control}
                         name="state"
                         placeHolder="State (e.g., NY)"
                         label="State"
                       />
                       <CustomInput
-                        id="dob"
+                        
                         form={form.control}
                         name="dob"
                         placeHolder="YYYY-MM-DD"
@@ -189,14 +189,14 @@ export default  function Authform({type}:{type: string}) {
   
                 {/* Common Fields */}
                 <CustomInput
-                  id="email"
+                  
                   form={form}
                   name="email"
                   placeHolder="Enter your email"
                   label="Email"
                 />
                 <CustomInput
-                  id="password"
+                  
                   form={form}
                   name="password"
                   placeHolder="Enter your password"
