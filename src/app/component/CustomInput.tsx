@@ -5,9 +5,10 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { UseFormReturn } from "react-hook-form"
 
 interface CustomInputProps {
-  form: any
+  form: UseFormReturn<any>,
   name: string
   label: string
   placeHolder: string
