@@ -1,15 +1,12 @@
 import React from 'react'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { logoutAccount } from '../lib/action/user.server'
-import { redirect, useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 const Logout = () => {
-  const router = useRouter()
   const handleLogOut = async () => {
-   const loggedOut = await logoutAccount();
-  if(loggedOut){
-    redirect('/sign-in')
-  } 
+    await logoutAccount();
+    redirect('/sign-in');
   }
   return (
     <div>

@@ -58,8 +58,7 @@ export const signUp = async (userData:SignUpParams) => {
 
   return parseStringify(newUserAcc)
   } catch (error) {
-    console.log(error);
-    
+    console.log(error); 
   }
 } 
 
@@ -71,7 +70,9 @@ export async function getLoggedInUser() {
     const user =  await account.get();
     return parseStringify(user)
   } catch (error) {
-    return null;
+    // return null;
+    console.log(error);
+    
   }
 }
 
@@ -83,7 +84,9 @@ export const logoutAccount = async () => {
 
     await account.deleteSession('current');
   } catch (error) {
-    return null;
+    // return null;
+    console.log(error);
+    
   }
 }
 

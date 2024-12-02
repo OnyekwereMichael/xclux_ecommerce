@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getLoggedInUser } from "../lib/action/user.server";
 import Link from "next/link";
-import TermsAndConditions from "../(auth)/TermsandConditon/page";
 const WelcomeModal = () => {
   const [loggedInUser, setLoggedInUser] = useState<{ name: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);

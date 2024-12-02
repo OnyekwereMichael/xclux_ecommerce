@@ -1,6 +1,3 @@
-// import assets from "@/public/asset";
-import Image from "next/image";
-
 export default function RootLayout({
     children,
   }: Readonly<{

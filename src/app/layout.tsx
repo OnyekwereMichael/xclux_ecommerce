@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
@@ -7,7 +6,7 @@ import CartProvider from "./component/Providers";
 import ShoppingCartModal from "./component/ShoppingCartModal";
 import { Toaster } from "react-hot-toast";
 import { getLoggedInUser } from "./lib/action/user.server";
-import { redirect } from "next/navigation";
+
 
 
 

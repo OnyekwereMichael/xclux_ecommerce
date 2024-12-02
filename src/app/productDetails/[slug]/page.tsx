@@ -12,6 +12,7 @@ import Product from '../../component/Home/Product';
 import { Loader2 } from 'lucide-react';
 import AddtoBag from '../../component/AddtoBag';
 import Image from 'next/image';
+import Checkout from '@/app/component/CheckoutNow';
 
 interface ProductData {
   _id: string;
@@ -147,6 +148,15 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
               image={productDetail.images[0]}
               key={productDetail._id}
               price_id={productDetail.price_id}
+            />
+            <Checkout 
+                 currency="USD"
+                 details={productDetail.details}
+                 price={productDetail.price}
+                 name={productDetail.name}
+                 image={productDetail.images[0]}
+                 key={productDetail._id}
+                 price_id={productDetail.price_id}
             />
             <button className="buy-now">Buy Now</button>
           </div>

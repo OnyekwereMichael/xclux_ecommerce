@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { AiOutlineLogout, AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineShopping } from 'react-icons/ai';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';

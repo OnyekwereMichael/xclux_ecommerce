@@ -1,7 +1,5 @@
 'use client'
-import Image from 'next/image';
 import Link from 'next/link';
-import assets from '@/assets/asset';
 import { useState } from 'react';
 import { z } from "zod"
  import { zodResolver } from "@hookform/resolvers/zod"
@@ -12,12 +10,6 @@ import toast from 'react-hot-toast'
 import { Button } from "@/components/ui/button"
 import {
   Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
 } from "@/components/ui/form"
 import CustomInput from './CustomInput';
 import { Loader2 } from 'lucide-react';
