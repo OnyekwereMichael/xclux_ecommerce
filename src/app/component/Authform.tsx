@@ -16,27 +16,13 @@ import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import WelcomeModal from './WelcomeModal';
 import { signIn, signUp } from '../lib/action/user.server';
+import { authFormSchema } from '@/lib/utils';
  
 
 
 export default  function Authform({type}:{type: string}) {
   const router = useRouter()
-  const formSchema = z.object({
-    // sign up 
-    firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    address1: type === 'sign-in' ? z.string().optional() : z.string().max(50).min(5),
-    city: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-    state: type === 'sign-in' ? z.string().optional() : z.string().max(5).min(2),
-    dob: type === 'sign-in' ? z.string().optional() : z.string().min(3),
- // sign in 
- email: z.string().email(),
- password: z.string()
- .min(8, { message: "Password must be at least 8 characters long." })
- .regex(/[a-z]/, { message: "Password must contain at least one lowercase letter." })
- .regex(/[A-Z]/, { message: "Password must contain at least one uppercase letter." })
- .regex(/\d/, { message: "Password must contain at least one number." })
-})
+  const formSchema = authFormSchema(type)
 
    // 1. Define your form.
    const form = useForm<z.infer<typeof formSchema>>({
@@ -125,14 +111,14 @@ export default  function Authform({type}:{type: string}) {
                     <div className="grid grid-cols-2 gap-4">
                       <CustomInput
                        
-                        form={form.control}
+                       control={form.control}
                         name="firstName"
                         placeHolder="Enter your first name"
                         label="First Name"
                       />
                       <CustomInput
                         
-                        form={form.control}
+                        control={form.control}
                         name="lastName"
                         placeHolder="Enter your last name"
                         label="Last Name"
@@ -140,14 +126,14 @@ export default  function Authform({type}:{type: string}) {
                     </div>
                     <CustomInput
                       
-                      form={form.control}
+                      control={form.control}
                       name="address1"
                       placeHolder="Enter your specific address"
                       label="Address"
                     />
                     <CustomInput
                       
-                      form={form.control}
+                      control={form.control}
                       name="city"
                       placeHolder="Enter your city"
                       label="City"
@@ -155,14 +141,14 @@ export default  function Authform({type}:{type: string}) {
                     <div className="grid grid-cols-2 gap-4">
                       <CustomInput
                         
-                        form={form.control}
+                        control={form.control}
                         name="state"
                         placeHolder="State (e.g., NY)"
                         label="State"
                       />
                       <CustomInput
                         
-                        form={form.control}
+                        control={form.control}
                         name="dob"
                         placeHolder="YYYY-MM-DD"
                         label="Date of Birth"
@@ -190,14 +176,14 @@ export default  function Authform({type}:{type: string}) {
                 {/* Common Fields */}
                 <CustomInput
                   
-                  form={form}
+                  control={form.control}
                   name="email"
                   placeHolder="Enter your email"
                   label="Email"
                 />
                 <CustomInput
                   
-                  form={form}
+                  control={form.control}
                   name="password"
                   placeHolder="Enter your password"
                   label="Password"
