@@ -15,13 +15,8 @@ interface CategoryData {
   imageUrl: string[];
 }
 
-interface CategoryPageProps {
-  params: {
-    category: string;
-  };
-}
-
-const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
+// Directly accept `params` as a prop
+const CategoryPage = ({ params }: { params: { category: string } }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
@@ -42,6 +37,9 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if (!params || !params.category) {
+          throw new Error('Invalid category parameter');
+        }
         const data = await getData(params.category);
         setCategory(data);
         setIsLoading(false);
@@ -53,7 +51,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
     };
 
     fetchData();
-  }, [params.category]);
+  }, [params]);
 
   if (isLoading) {
     return (
@@ -72,7 +70,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
   }
 
   return (
-    <div className='mt-14'>
+    <div className="mt-14">
       <div className="py-4 px-4 max-sm:py-1 max-sm:px-1">
         <p className="text-2xl font-semibold">Our Products for {params.category}:</p>
         <div className="px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-4">
