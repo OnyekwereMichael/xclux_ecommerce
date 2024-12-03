@@ -21,11 +21,12 @@ interface CategoryPageProps {
   };
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ params }: CategoryPageProps) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
 
+  // Fetch product data
   const getData = async (category: string): Promise<CategoryData[]> => {
     const query = `*[_type == "product" && category->name == $category]{
       _id,
@@ -71,7 +72,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ params }: CategoryPageProps
   }
 
   return (
-    <div className="mt-14">
+    <div className='mt-14'>
       <div className="py-4 px-4 max-sm:py-1 max-sm:px-1">
         <p className="text-2xl font-semibold">Our Products for {params.category}:</p>
         <div className="px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-4">
