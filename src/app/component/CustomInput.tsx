@@ -5,14 +5,14 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Control, FieldPath, UseFormReturn } from "react-hook-form"
+import { Control, FieldPath } from "react-hook-form"
 import { z } from "zod"
 import { authFormSchema } from "@/lib/utils"
 
-const formSchema = authFormSchema("sign-up")
+type FormSchema = z.infer<ReturnType<typeof authFormSchema>>;
 interface CustomInputProps {
-  control: Control<z.infer<typeof formSchema>>,
-  name: FieldPath<z.infer<typeof formSchema>>
+  control: Control<FormSchema>;
+  name: FieldPath<FormSchema>;
   label: string
   placeHolder: string
 }
