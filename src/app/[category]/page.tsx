@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -16,11 +15,17 @@ interface CategoryData {
   imageUrl: string[];
 }
 
-// "@ts-expect-error"
-const CategoryPage = ({ params }: { params: { category: string } }) => {
+interface CategoryPageProps {
+  params: Promise<{
+    category: string;
+  }>;
+}
+
+const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
+  const [categoryName, setCategoryName] = useState<string | null>(null);
 
   // Fetch product data
   const getData = async (category: string): Promise<CategoryData[]> => {
@@ -33,15 +38,16 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
       'categoryName': category->name
     }`;
 
-    // "@ts-expect-error"
     return client.fetch(query, { category });
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // "@ts-expect-error"
-        const data = await getData(params.category);
+        const resolvedParams = await params; // Wait for params to resolve
+        setCategoryName(resolvedParams.category); // Set the category name
+
+        const data = await getData(resolvedParams.category);
         setCategory(data);
         setIsLoading(false);
       } catch (error) {
@@ -52,7 +58,7 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
     };
 
     fetchData();
-  }, [params.category]);
+  }, [params]);
 
   if (isLoading) {
     return (
@@ -73,7 +79,7 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
   return (
     <div className='mt-14'>
       <div className="py-4 px-4 max-sm:py-1 max-sm:px-1">
-        <p className="text-2xl font-semibold">Our Products for {params.category}:</p>
+        <p className="text-2xl font-semibold">Our Products for {categoryName}:</p>
         <div className="px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-4">
           {category.map((product) => (
             <Link href={`/productDetails/${product.slug}`} key={product._id}>
