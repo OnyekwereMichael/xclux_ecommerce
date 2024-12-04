@@ -35,7 +35,6 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
-  const [slug, setSlug] = useState<string | null>(null);
 
   // Fetch product data
   const getData = async (slug: string) => {
@@ -55,9 +54,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resolvedParams = await params; 
-        setSlug(resolvedParams.slug); 
-
+        const resolvedParams = await params;
         const data = await getData(resolvedParams.slug);
         setProductDetail(data);
         setIsLoading(false);
@@ -99,7 +96,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
 
           <div className="small-images-container">
             {productDetail.images.map((image, i) => (
-              <div key={`${productDetail._id}-${i}`}>
+              <div key={`${productDetail._id}-${i}`}> {/* Ensured unique key using product ID and index */}
                 <Image
                   className="selected-image"
                   src={image}
