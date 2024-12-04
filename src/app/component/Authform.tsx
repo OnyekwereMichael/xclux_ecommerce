@@ -88,9 +88,9 @@ export default  function Authform({type}:{type: string}) {
           {user ? (
             <WelcomeModal />
           ) : type === "sign-in" ? (
-            " Welcome Back! 😃"
+            " Welcome Back! 😃 mmm"
           ) : (
-            " Create an account to get started. mmm"
+            " Create an account to get started. "
           )}
         </h2>
         <p className="text-gray-600 mb-1 text-center">
