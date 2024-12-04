@@ -5,8 +5,7 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 
 const ContactUs = () => {
-  const form = useRef();
-
+  const form = useRef<HTMLFormElement | null>(null);
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
