@@ -22,11 +22,11 @@ const Checkout = ({currency, price, details, image, name, price_id}:ProductCart)
     const { checkoutSingleItem } = useShoppingCart()
     return (
         <div>
-            <button type="button" className="add-to-cart"
+            <button type="button" className="buy-now"
              onClick={() => {
                buyNow(Product.price_id)
              }}>
-                Add to Cart
+                Buy Now
             </button>
         </div>
     )

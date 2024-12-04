@@ -161,7 +161,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
                  key={productDetail._id}
                  price_id={productDetail.price_id}
             />
-            <button className="buy-now">Buy Now</button>
+            {/* <button className="buy-now">Buy Now</button> */}
           </div>
         </div>
       </div>
