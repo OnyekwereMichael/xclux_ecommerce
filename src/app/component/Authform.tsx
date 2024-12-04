@@ -88,7 +88,7 @@ export default  function Authform({type}:{type: string}) {
           {user ? (
             <WelcomeModal />
           ) : type === "sign-in" ? (
-            " Welcome Back! 😃"
+            " Welcome Back! 😃 😃"
           ) : (
             " Create an account to get started."
           )}
