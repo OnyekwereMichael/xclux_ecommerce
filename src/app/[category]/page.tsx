@@ -16,7 +16,7 @@ interface CategoryData {
   imageUrl: string[];
 }
 
-// @ts-ignore
+// "@ts-expect-error"
 const CategoryPage = ({ params }: { params: { category: string } }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -32,14 +32,15 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
       "imageUrl": image[].asset->url,
       'categoryName': category->name
     }`;
-    // @ts-ignore
+
+    // "@ts-expect-error"
     return client.fetch(query, { category });
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // @ts-ignore
+        // "@ts-expect-error"
         const data = await getData(params.category);
         setCategory(data);
         setIsLoading(false);
