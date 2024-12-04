@@ -25,7 +25,9 @@ interface ProductData {
 }
 
 interface ProductDetailsProps {
-  params: { slug: string };
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
 const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
@@ -33,6 +35,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(0);
+  const [slug, setSlug] = useState<string | null>(null);
 
   // Fetch product data
   const getData = async (slug: string) => {
@@ -52,7 +55,10 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getData(params.slug);
+        const resolvedParams = await params; 
+        setSlug(resolvedParams.slug); 
+
+        const data = await getData(resolvedParams.slug);
         setProductDetail(data);
         setIsLoading(false);
       } catch (error) {
@@ -63,7 +69,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
     };
 
     fetchData();
-  }, [params.slug]);
+  }, [params]);
 
   if (isLoading) {
     return (
@@ -93,7 +99,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
 
           <div className="small-images-container">
             {productDetail.images.map((image, i) => (
-              <div key={i}>
+              <div key={`${productDetail._id}-${i}`}>
                 <Image
                   className="selected-image"
                   src={image}
