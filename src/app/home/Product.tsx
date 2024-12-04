@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { client } from '../../lib/client'
+import { client } from '../lib/client'
 import { AiOutlineShopping } from 'react-icons/ai'
 import Link from 'next/link';
 import { Loader2 } from 'lucide-react';

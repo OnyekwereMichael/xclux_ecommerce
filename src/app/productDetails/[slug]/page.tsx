@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ai';
 import React, { useState, useEffect } from 'react';
 import { client } from '../../lib/client';
-import Product from '../../component/Home/Product';
+import Product from '../../home/Product';
 import { Loader2 } from 'lucide-react';
 import AddtoBag from '../../component/AddtoBag';
 import Image from 'next/image';

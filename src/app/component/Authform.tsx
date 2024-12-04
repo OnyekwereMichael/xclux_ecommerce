@@ -62,7 +62,7 @@ export default  function Authform({type}:{type: string}) {
           })
   
           // if (res) router.push('/component/Home')
-            if(res) window.location.href = '/component/Home'
+            if(res) window.location.href = '/home'
             toast.success('Sign in successful')
         }
     }catch (error) {

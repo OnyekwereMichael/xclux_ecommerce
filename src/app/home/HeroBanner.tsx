@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import assets from '../../../assets/asset';
+import assets from '../../assets/asset';
 import Image from 'next/image';
-import { client } from '../../lib/client';
+import { client } from '../lib/client';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Loader2 } from 'lucide-react';
