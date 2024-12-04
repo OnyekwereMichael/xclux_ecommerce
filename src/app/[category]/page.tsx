@@ -15,13 +15,7 @@ interface CategoryData {
   imageUrl: string[];
 }
 
-interface CategoryPageProps {
-  params: {
-    category: string;
-  };
-}
-
-const CategoryPage: React.FC<CategoryPageProps> = ({ params }: CategoryPageProps) => {
+const CategoryPage = ({ params }: { params: { category: string } }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);
