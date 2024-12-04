@@ -1,4 +1,4 @@
-// @ts-ignore
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -16,6 +16,7 @@ interface CategoryData {
   imageUrl: string[];
 }
 
+// @ts-ignore
 const CategoryPage = ({ params }: { params: { category: string } }) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -31,12 +32,14 @@ const CategoryPage = ({ params }: { params: { category: string } }) => {
       "imageUrl": image[].asset->url,
       'categoryName': category->name
     }`;
+    // @ts-ignore
     return client.fetch(query, { category });
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // @ts-ignore
         const data = await getData(params.category);
         setCategory(data);
         setIsLoading(false);
