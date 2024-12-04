@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form"
 import CustomInput from './CustomInput';
 import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import WelcomeModal from './WelcomeModal';
 import { signIn, signUp } from '../lib/action/user.server';
 import { authFormSchema } from '@/lib/utils';
@@ -21,7 +21,7 @@ import { authFormSchema } from '@/lib/utils';
 
 
 export default  function Authform({type}:{type: string}) {
-  const router = useRouter()
+  // const router = useRouter()
   const formSchema = authFormSchema(type)
 
    // 1. Define your form.
