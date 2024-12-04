@@ -21,7 +21,7 @@ interface CategoryPageProps {
   };
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
+const CategoryPage: React.FC<CategoryPageProps> = ({ params }: CategoryPageProps) => {
   const [category, setCategory] = useState<CategoryData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isError, setIsError] = useState<boolean>(false);

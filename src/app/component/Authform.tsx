@@ -32,7 +32,7 @@ export default  function Authform({type}:{type: string}) {
        firstName: "",
        lastName: "",
        address1: "",
-        city: "",
+        // city: "",
        state: "",
        dob: "",
 
@@ -131,13 +131,12 @@ export default  function Authform({type}:{type: string}) {
                       placeHolder="Enter your specific address"
                       label="Address"
                     />
-                    <CustomInput
-                      
+                    {/* <CustomInput 
                       control={form.control}
                       name="city"
                       placeHolder="Enter your city"
                       label="City"
-                    />
+                    /> */}
                     <div className="grid grid-cols-2 gap-4">
                       <CustomInput
                         
