@@ -60,11 +60,11 @@ const Product: React.FC = () => {
   }
   return (
     <div >
-     <div className='px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-2 mb-[44px] space-y-1'>
+     <div className='px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-2 mb-[44px] '>
       {products.length > 0 ? (
         products.map((product) => (
           <Link href={`/productDetails/${product.slug}`} key={product._id}>
-          <div key={product._id} className='relative  max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm'>
+          <div key={product._id} className='relative  max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm max-sm:py-2'>
             <div>
             <Image width={500} height={500} src={product.imageUrl} alt={product.name} />
              <div>
