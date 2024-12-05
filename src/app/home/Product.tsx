@@ -64,18 +64,18 @@ const Product: React.FC = () => {
       {products.length > 0 ? (
         products.map((product) => (
           <Link href={`/productDetails/${product.slug}`} key={product._id}>
-          <div key={product._id} className='relative'>
+          <div key={product._id} className='relative  max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm'>
             <div>
             <Image width={500} height={500} src={product.imageUrl} alt={product.name} />
              <div>
-              <div className=' outline-none border-0 p-[10px] flex flex-col justify-center items-center absolute lg:bottom-[134px] lg:left-[20px] lg:w-[44px] lg:h-[44px] h-[34px] w-[34px] max-sm:w-[25px] max-sm:h-[25px] bottom-[90px] left-[5%] bg-white opacity-90 rounded-[8px]'>
+              <div className=' outline-none border-0 p-[10px] flex flex-col justify-center items-center absolute lg:bottom-[134px] lg:left-[20px] lg:w-[44px] lg:h-[44px] h-[34px] w-[34px] max-sm:w-[25px] max-sm:h-[25px] bottom-[90px] left-[5%] bg-white opacity-90 rounded-[8px] '>
             <AiOutlineShopping size={14} className='text-black opacity-80 text-3xl max-sm:text-2xl no-underline  font-medium capitalize overflow-hidden whitespace-nowrap text-ellipsis absolute w-full h-full z-2' />
             </div>
             </div>
           
-            <h3 className='text-[14px] no-underline lg:text-[20px] font-semibold capitalize text-center py-[4px] overflow-hidden whitespace-nowrap text-ellipsis'>{product.name}</h3>
-            <p className='text-black text-opacity-60 text-[13px] lg:text-[18px] font-semibold w-full max-w-[90%] text-right mb-4 capitalize overflow-hidden whitespace-nowrap text-ellipsis max-sm:'>{product.details}</p>
-            <p className='text-[15px] lg:text-[22px]   capitalize w-full text-center overflow-hidden whitespace-nowrap text-ellipsis font-semibold'>NGN {product.price}</p>
+            <h3 className='text-[16px] no-underline lg:text-[20px] font-semibold capitalize text-center py-[4px] overflow-hidden whitespace-nowrap text-ellipsis'>{product.name}</h3>
+            <p className='text-black text-opacity-60 text-[13px] lg:text-[18px] font-semibold w-full max-w-[90%] text-right mb-2 capitalize overflow-hidden whitespace-nowrap text-ellipsis max-sm:'>{product.details}</p>
+            <p className='text-[16px] lg:text-[22px]   capitalize w-full text-center overflow-hidden whitespace-nowrap text-ellipsis font-semibold'>NGN {product.price}</p>
             </div>
           </div>
      </Link>

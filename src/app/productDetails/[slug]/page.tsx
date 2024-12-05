@@ -82,7 +82,7 @@ const Productdetails: React.FC<ProductDetailsProps> = ({ params }) => {
 
   return (
     <div className='mt-14 mb-[44px]'>
-      <div className="product-detail-container">
+      <div className="product-detail-container ">
         <div>
           <div className="product-detail-image hover:transition-all hover:duration-500">
             <Image

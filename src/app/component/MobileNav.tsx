@@ -16,16 +16,18 @@ import {
 } from "../../components/ui/sheet";
 import Image from 'next/image';
 import Link from 'next/link';
+import { useShoppingCart } from 'use-shopping-cart';
 
 
 const MobileNav = () => {
+  const { handleCartClick } = useShoppingCart();
   return (
-    <div className='flex justify-between items-center px-3'>
-      <div className='flex gap-4 items-center'>
+    <div className='flex justify-between items-center px-3 '>
+      <div className='flex gap-4 items-center '>
         <div>
-          <Sheet>
+          <Sheet >
             <SheetTrigger><HiMenu size={24} className='text-white' /></SheetTrigger>
-            <SheetContent side='left' className="bg-black opacity-80 h-[50%] ">
+            <SheetContent side='left' className="bg-black opacity-80 h-[50%] mt-14">
               <SheetHeader>
                 <SheetTitle>
                   <p className='text-[20px] font-semibold text-white my-5'>Shop All Items</p>
@@ -67,7 +69,9 @@ const MobileNav = () => {
       <Image src={assets.logo} alt="XsLogo" width='40' />
 
       <div className='flex gap-4 items-center'>
-        <AiOutlineShopping className='text-white text-2xl' />
+        <AiOutlineShopping className='text-white text-2xl' onClick={() => {
+          handleCartClick()
+        }}/>
          {/* <FaShareAlt className='text-white text-2xl' /> */}
            <IoShareOutline size={24} className='text-white text-2xl'/>
       </div>

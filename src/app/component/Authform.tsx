@@ -79,18 +79,18 @@ export default  function Authform({type}:{type: string}) {
   const [isLoading, setIsLoading] = useState(false)
   return (
     <div
-    className=" relative flex flex-col items-center justify-center w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')] max-sm:mt-14"
+    className=" relative flex flex-col items-center justify-center w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')] max-sm:h-[100vh] max-sm:px-2 "
   >
-    <div className="w-full  lg:w-[40%] flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4">
+    <div className="w-full  lg:w-[40%] flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4 ">
       <div className="w-full max-w-[100%]">
         {/* Title */}
         <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 text-center">
           {user ? (
             <WelcomeModal />
           ) : type === "sign-in" ? (
-            " Welcome Back! 😃 😊"
+            " Welcome Back! 😃"
           ) : (
-            " Create an account to get started. "
+            " Create an account ✔. "
           )}
         </h2>
         <p className="text-gray-600 mb-1 text-center">
@@ -109,7 +109,7 @@ export default  function Authform({type}:{type: string}) {
                 {/* Sign-Up Fields */}
                 {type === "sign-up" && (
                   <>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-4 ">
                       <CustomInput
                        
                        control={form.control}
