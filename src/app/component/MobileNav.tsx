@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { HiMenu } from "react-icons/hi";
 import assets from '../../assets/asset'
-import { AiOutlineLogout, AiOutlineShopping } from 'react-icons/ai'
-import { IoShareOutline } from 'react-icons/io5';
+import {  AiOutlineShopping } from 'react-icons/ai'
+
 
 
 import {
