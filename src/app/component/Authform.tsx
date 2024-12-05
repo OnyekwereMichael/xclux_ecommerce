@@ -79,12 +79,12 @@ export default  function Authform({type}:{type: string}) {
   const [isLoading, setIsLoading] = useState(false)
   return (
     <div
-    className=" relative flex flex-col items-center justify-center w-screen h-screen  bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')] max-sm:h-[100vh] max-sm:px-2 "
+    className=" relative flex flex-col items-center justify-center w-screen h-screen  bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')]"
   >
-    <div className="w-full  lg:w-[40%] md:w-[80%]  flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4 ">
+    <div className="w-full lg:w-[40%] md:w-[80%]  flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4 max-sm:rounded-none">
       <div className="w-full max-w-[100%]">
         {/* Title */}
-        <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 text-center">
+        <h2 className="text-2xl lg:text-3xl font-bold text-black mb-6 max-sm:mb-3 text-center max-sm:mt-8">
           {user ? (
             <WelcomeModal />
           ) : type === "sign-in" ? (
@@ -105,7 +105,7 @@ export default  function Authform({type}:{type: string}) {
         ) : (
           <>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-sm:mt-6">
                 {/* Sign-Up Fields */}
                 {type === "sign-up" && (
                   <>
