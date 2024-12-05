@@ -107,7 +107,7 @@ const MobileNav = () => {
          <div
          className="bg-gray-600 w-[35px] h-[35px] rounded-[50%] flex justify-center items-center"
        >
-         <span className="text-white font-bold text-[24px] capitalize">
+         <span className="text-white font-bold text-[23px] capitalize">
            {loggedInUser.name.charAt(0)}
          </span>
        </div>
