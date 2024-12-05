@@ -19,6 +19,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useShoppingCart } from 'use-shopping-cart';
 import { getLoggedInUser } from '../lib/action/user.server';
+import Logout from './Logout';
 
 
 const MobileNav = () => {
@@ -95,21 +96,24 @@ const MobileNav = () => {
       <Image src={assets.logo} alt="XsLogo" width='40' />
 
       <div className='flex gap-4 items-center'>
-        <AiOutlineShopping className='text-white text-[24px]' onClick={() => {
+        <AiOutlineShopping className='text-white text-[26px]' onClick={() => {
           handleCartClick()
         }}/>
          {/* <FaShareAlt className='text-white text-2xl' /> */}
-         <AiOutlineLogout style={{ marginRight: "8px", color: "white", fontSize: "24px" }} />
-      </div>
-      {loggedInUser && (
+         {/* <AiOutlineLogout style={{ marginRight: "8px", color: "white", fontSize: "24px" }} onClick={() => {
+            Logout()
+         }}/> */}
+         {loggedInUser && (
          <div
-         className="bg-gray-600 w-[40px] h-[40px] rounded-[50%] flex justify-center items-center"
+         className="bg-gray-600 w-[35px] h-[35px] rounded-[50%] flex justify-center items-center"
        >
-         <span className="text-white font-bold text-2xl capitalize">
+         <span className="text-white font-bold text-[24px] capitalize">
            {loggedInUser.name.charAt(0)}
          </span>
        </div>
       ) }
+      <Logout />
+      </div>
     </div>
   )
 }

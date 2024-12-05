@@ -1,12 +1,13 @@
 import React from 'react'
 import { AiOutlineLogout } from 'react-icons/ai'
 import { logoutAccount } from '../lib/action/user.server'
-import { redirect } from 'next/navigation'
+// import { redirect } from 'next/navigation'
 
 const Logout = () => {
   const handleLogOut = async () => {
     await logoutAccount();
-    redirect('/sign-in');
+    // redirect('/sign-in');
+    window.location.href = '/sign-in';
   }
   return (
     <div>
@@ -22,7 +23,7 @@ const Logout = () => {
           }}
         className='text-white hover:bg-black/60 hover:text-white' onClick={() => handleLogOut()}>
           <AiOutlineLogout style={{ marginRight: "8px" }} />
-          Logout
+         <p>Logout</p>
         </button>
     </div>
   )

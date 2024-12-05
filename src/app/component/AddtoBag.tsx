@@ -32,7 +32,7 @@ const AddtoBag = ({currency, price, details, image, name, price_id}:ProductCart)
                 addItem(Product)
                 console.log('Product added to cart:', Product);
                 toast.success(`${name} added to cart!`, {
-                    position: 'bottom-center',
+                    position: 'top-center',
                     duration: 3000,
                     icon: '🛒',
                 });
