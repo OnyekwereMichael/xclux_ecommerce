@@ -88,9 +88,9 @@ const MobileNav = () => {
           </Sheet>
         </div>
 
-        <div>
+        {/* <div>
           <Image src={assets.searchlogo} alt="" />
-        </div>
+        </div> */}
       </div>
 
       <Image src={assets.logo} alt="XsLogo" width='40' />
