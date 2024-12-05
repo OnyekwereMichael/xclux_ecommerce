@@ -60,7 +60,7 @@ const Product: React.FC = () => {
   }
   return (
     <div >
-     <div className='px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-2 mb-[44px]'>
+     <div className='px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-2 mb-[44px] space-y-1'>
       {products.length > 0 ? (
         products.map((product) => (
           <Link href={`/productDetails/${product.slug}`} key={product._id}>

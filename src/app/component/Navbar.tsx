@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
 import { usePathname } from 'next/navigation';
@@ -34,7 +33,7 @@ const Navbar = ({ user }: { user: User }) => {
   if (hideNavbarRoutes.includes(pathName)) return null;
 
   const links = [
-    { name: 'Shop Now', href: '/component/Home' },
+    { name: 'Shop Now', href: '/home' },
     { name: 'Collections', href: '/collections' },
     { name: 'About', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
