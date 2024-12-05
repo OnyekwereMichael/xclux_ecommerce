@@ -93,10 +93,10 @@ const MobileNav = () => {
         </div> */}
       </div>
 
-      <Image src={assets.logo} alt="XsLogo" width='40' />
+      <Image src={assets.logo} alt="XsLogo" width='35' />
 
       <div className='flex gap-4 items-center'>
-        <AiOutlineShopping className='text-white text-[26px]' onClick={() => {
+        <AiOutlineShopping className='text-white text-[30px]' onClick={() => {
           handleCartClick()
         }}/>
          {/* <FaShareAlt className='text-white text-2xl' /> */}
@@ -105,9 +105,9 @@ const MobileNav = () => {
          }}/> */}
          {loggedInUser && (
          <div
-         className="bg-gray-600 w-[35px] h-[35px] rounded-[50%] flex justify-center items-center"
+         className="bg-gray-600 w-[33px] h-[33px] rounded-[50%] flex justify-center items-center"
        >
-         <span className="text-white font-bold text-[23px] capitalize">
+         <span className="text-white font-bold text-[21px] capitalize">
            {loggedInUser.name.charAt(0)}
          </span>
        </div>

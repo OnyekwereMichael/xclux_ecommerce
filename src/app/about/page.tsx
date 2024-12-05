@@ -149,7 +149,7 @@ const About = () => {
             Experience the best in online shopping today.
           </p>
           <button className="mt-8 bg-white text-black px-8 py-3 rounded-full shadow-md hover:bg-gray-100 transition">
-            <Link href="/">Start Shopping</Link>
+            <Link href="/home">Start Shopping</Link>
           </button>
         </div>
       </section>

@@ -83,7 +83,7 @@ const CategoryPage: React.FC<CategoryPageProps> = ({ params }) => {
         <div className="px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[40%] w-full max-sm:px-2">
           {category.map((product) => (
             <Link href={`/productDetails/${product.slug}`} key={product._id}>
-              <div className="relative max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm">
+              <div className="relative max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm max-sm:my-[3px]">
                 <div>
                   <Image
                     width={500}

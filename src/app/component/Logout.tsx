@@ -23,7 +23,7 @@ const Logout = () => {
           }}
         className='text-white hover:bg-black/60 hover:text-white' onClick={() => handleLogOut()}>
           <AiOutlineLogout style={{ marginRight: "8px" }} />
-         <p>Logout</p>
+         <p  className='max-sm:text-[15px]'>Logout</p>
         </button>
     </div>
   )
