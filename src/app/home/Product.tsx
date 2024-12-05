@@ -64,7 +64,7 @@ const Product: React.FC = () => {
       {products.length > 0 ? (
         products.map((product) => (
           <Link href={`/productDetails/${product.slug}`} key={product._id}>
-          <div key={product._id} className='relative  max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm max-sm:py-2'>
+          <div key={product._id} className='relative  max-sm:shadow-md max-sm:px-2 max-sm:pb-2 max-sm:rounded-sm max-sm:my-[2px]'>
             <div>
             <Image width={500} height={500} src={product.imageUrl} alt={product.name} />
              <div>
