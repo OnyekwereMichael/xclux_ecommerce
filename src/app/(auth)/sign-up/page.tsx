@@ -1,8 +1,5 @@
 import { getLoggedInUser } from "@/app/lib/action/user.server";
 import Authform from "../../component/Authform"
-import { useEffect } from "react";
-
-
 
 const SignUp = async () => {
   const loggedInUser = await getLoggedInUser();
@@ -17,7 +14,6 @@ const SignUp = async () => {
     <div>
        <section className='signIn'>
            <Authform type ='sign-up'/>
-           {/* <p>Sign In</p> */}
        </section>
     </div>
   )
