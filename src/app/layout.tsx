@@ -41,8 +41,6 @@ export default async function RootLayout({
       >
         <CartProvider>
           <Toaster />
-          
-
             <Navbar user={loggedIn ?? undefined} />
             <ShoppingCartModal />
             <div className=" max-sm:mt-18">

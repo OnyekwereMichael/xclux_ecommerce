@@ -1,12 +1,18 @@
 import { getLoggedInUser } from "@/app/lib/action/user.server";
 import Authform from "../../component/Authform"
-import { redirect } from "next/navigation";
+import { useEffect } from "react";
+
+
 
 const SignUp = async () => {
   const loggedInUser = await getLoggedInUser();
   console.log(loggedInUser);
   
-  if (!loggedInUser) redirect("/signup");
+  if (typeof window !== 'undefined') {
+    if (!loggedInUser) {
+      window.location.href = 'sign-up';
+    }
+  }
   return (
     <div>
        <section className='signIn'>
