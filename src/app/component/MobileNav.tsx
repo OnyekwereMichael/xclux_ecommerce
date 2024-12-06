@@ -78,11 +78,6 @@ const MobileNav = () => {
                     </li>
                     <li className='text-[18px] my-5'>
                       <SheetClose asChild>
-                        <Link href="" className='text-[#C3D4E9]'>Track Order</Link>
-                      </SheetClose>
-                    </li>
-                    <li className='text-[18px] my-5'>
-                      <SheetClose asChild>
                         <Link href="/contact" className='text-[#C3D4E9]'>Contact Us</Link>
                       </SheetClose>
                     </li>

@@ -15,7 +15,7 @@ const Logout = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            padding: "6px 12px",
+            // padding: "6px 12px",
             fontSize: "16px",
             borderRadius: "4px",
             cursor: "pointer",
