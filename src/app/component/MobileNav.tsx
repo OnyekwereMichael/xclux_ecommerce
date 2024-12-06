@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { HiMenu } from "react-icons/hi";
 import assets from '../../assets/asset'
-import { AiOutlineLogout, AiOutlineShopping } from 'react-icons/ai'
+import { AiOutlineShopping } from 'react-icons/ai'
 
 
 
@@ -114,7 +114,6 @@ const MobileNav = () => {
        </div>
       ) }
       <Logout />
-      {/* <AiOutlineLogout className='text-white text-[30px]'/> */}
       </div>
     </div>
   )
