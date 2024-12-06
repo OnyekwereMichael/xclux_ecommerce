@@ -90,9 +90,9 @@ const pathName = usePathname()
           <p className="text-[28px] uppercase font-medium mb-2">{banner.smallText}</p>
           <div className="flex items-center gap-2 font-extralight text-[16px] px-4 py-2 text-white border border-white w-[fit-content] h-[fit-content] hover:border-[#A3A1A1] rounded-[24px]">
             <Image src={assets.arrow} alt="Arrow Icon" width={30} height={30} />
-            <button type="submit" className="uppercase font-extralight text-[18px]">
+            <Link href={'/collections'} type="submit" className="uppercase font-semibold text-[18px]">
               {banner.buttonText}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

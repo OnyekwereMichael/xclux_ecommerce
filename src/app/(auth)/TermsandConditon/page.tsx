@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const TermsAndCondition = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-5 px-5 w-[98.5vw] max-sm:px-3 max-sm:py-6 relative">
-      <div className="max-w-screen  bg-white shadow-lg rounded-lg p-8">
+    <div className="min-h-screen bg-gray-100 py-5 px-5 w-[98.5vw] max-sm:px-2 max-sm:py-6 mt-14 relative ">
+      <div className="max-w-screen  bg-white shadow-lg rounded-lg p-8 border-[3px] border-solid border-black">
         <h1 className="text-4xl font-bold text-black mb-4 text-center max-sm:text-2xl">
           Terms and Conditions
         </h1>
@@ -87,8 +87,8 @@ const TermsAndCondition = () => {
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/">
-            <Link href='/' className="inline-block bg-black text-white py-3 px-8 rounded-lg shadow-md hover:bg-gray-800 transition duration-300 text-lg">
+          <Link href="/home">
+            <Link href='/home' className="inline-block bg-black text-white py-3 px-8 rounded-lg shadow-md hover:bg-gray-800 transition duration-300 text-lg">
               Back to Home
             </Link>
           </Link>

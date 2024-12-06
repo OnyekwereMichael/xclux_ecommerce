@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { HiMenu } from "react-icons/hi";
 import assets from '../../assets/asset'
-import {  AiOutlineShopping } from 'react-icons/ai'
+import { AiOutlineLogout, AiOutlineShopping } from 'react-icons/ai'
 
 
 
@@ -52,15 +52,20 @@ const MobileNav = () => {
     <div className='flex justify-between items-center px-3 '>
       <div className='flex gap-4 items-center '>
         <div>
-          <Sheet >
+          <Sheet>
             <SheetTrigger><HiMenu size={24} className='text-white' /></SheetTrigger>
             <SheetContent side='left' className="bg-black opacity-80 h-[50%] mt-14">
               <SheetHeader>
                 <SheetTitle>
-                  <p className='text-[20px] font-semibold text-white my-5'>Shop All Items</p>
+                  <p className='text-[20px] font-semibold text-white my-5'>Xclux Store</p>
                 </SheetTitle>
                 <SheetDescription>
                   <ul className="text-white capitalize flex flex-col gap-4">
+                  <li className='text-[18px] my-5'>
+                      <SheetClose asChild>
+                        <Link href="/home" className='text-[#C3D4E9]'>Shop Now</Link>
+                      </SheetClose>
+                    </li>
                     <li className='text-[18px] my-5'>
                       <SheetClose asChild>
                         <Link href="/collections" className='text-[#C3D4E9]'>Our Collections</Link>
@@ -87,13 +92,9 @@ const MobileNav = () => {
             </SheetContent>
           </Sheet>
         </div>
-
-        {/* <div>
-          <Image src={assets.searchlogo} alt="" />
-        </div> */}
       </div>
 
-      <Image src={assets.logo} alt="XsLogo" width='35' />
+      <Image src={assets.logo} alt="XsLogo" width='38' />
 
       <div className='flex gap-4 items-center'>
         <AiOutlineShopping className='text-white text-[30px]' onClick={() => {
@@ -113,6 +114,7 @@ const MobileNav = () => {
        </div>
       ) }
       <Logout />
+      {/* <AiOutlineLogout className='text-white text-[30px]'/> */}
       </div>
     </div>
   )

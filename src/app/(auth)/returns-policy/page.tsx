@@ -3,9 +3,10 @@ import React from 'react'
 
 const Returnpolicy = () => {
   return (
-    <div className="min-h-[10vw] w-[98.5vw] bg-gray-50 py-12 px-6 flex justify-center">
+    <div className="min-h-[10vw] w-[98.5vw] bg-gray-50 py-12 px-6 flex justify-center  mt-14 max-sm:px-2 max-sm:mt-7 max-sm:w-[100vw]">
+<div className='border-solid border-[3px] border-black'>
   <div className="max-w-3xl bg-white shadow-lg rounded-lg p-8">
-    <h1 className="text-3xl font-bold text-gray-900 text-center mb-6 max-sm:text-3xl">
+    <h1 className="text-2xl font-bold text-gray-900 text-center mb-6 max-sm:text-3xl">
       Return Policy ✔
     </h1>
     <p className="text-gray-700 text-lg leading-relaxed mb-6">
@@ -37,12 +38,13 @@ const Returnpolicy = () => {
 
     <div className="mt-8 text-center">
       <Link
-        href="/"
+        href="/home"
         className="inline-block bg-gray-900 text-white py-3 px-10 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-lg"
       >
         Back to Home
       </Link>
     </div>
+  </div>
   </div>
 </div>
   )
