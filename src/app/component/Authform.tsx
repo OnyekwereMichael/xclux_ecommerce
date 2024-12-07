@@ -61,16 +61,16 @@ export default function Authform({ type }: { type: string }) {
   <div className="w-full lg:w-[40%] md:w-[80%] flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4 max-sm:rounded-none max-sm:shadow-none max-sm:h-screen max-sm:overflow-y-auto">
     <div className="w-full max-w-[100%]">
       {/* Title */}
-      <h2 className="text-[30px] lg:text-3xl font-bold text-black mb-6 max-sm:mb-3 text-center max-sm:text-3xl max-sm:leading-tight my-10">
+      <h2 className="text-[30px] lg:text-3xl font-bold text-black mb-3 max-sm:mb-3 text-center max-sm:text-3xl max-sm:leading-tight max-sm:my-[51px]">
         {user ? (
           <WelcomeModal />
         ) : type === "sign-in" ? (
           " Welcome Back! 😃"
         ) : (
-          "Create an account 😊"
+          "Create an account ✔"
         )}
       </h2>
-      <p className="text-gray-600 mb-1 text-center max-sm:text-sm max-sm:mb-4">
+      <p className="text-gray-600 mb-6 text-center max-sm:text-sm max-sm:mb-4">
         {type === 'sign-in'
           ? 'Log in to continue exploring your favorite products.'
           : ' Join us today and explore new possibilities! ✔'}
