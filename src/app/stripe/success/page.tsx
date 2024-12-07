@@ -55,7 +55,7 @@ export default function Success() {
             </p>
             <div className="mt-6">
               <Link
-                href="/"
+                href="/home"
                 className="bg-black hover:bg-black/70 text-white px-6 py-3 mt-2 rounded-lg transition"
               >
                 Go Back Home
