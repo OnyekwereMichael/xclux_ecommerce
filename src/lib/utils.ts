@@ -13,12 +13,14 @@ export function authFormSchema(type:string) {
   // Your schema logic
   return z.object({
      // sign up 
-        firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-        lastName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-        address1: type === 'sign-in' ? z.string().optional() : z.string().max(50).min(5),
-        // city: type === 'sign-in' ? z.string().optional() : z.string().min(3),
-        state: type === 'sign-in' ? z.string().optional() : z.string().max(5).min(2),
-        dob: type === 'sign-in' ? z.string().optional() : z.string().min(3),
+     firstName: type === 'sign-in'
+     ? z.string().optional()
+     : z.string().min(3, { message: "First name must be at least 3 characters long." }),
+   
+   lastName: type === 'sign-in'
+     ? z.string().optional()
+     : z.string().min(3, { message: "Last name must be at least 3 characters long." }),
+   
      // sign in 
      email: z.string().email(),
      password: z.string()

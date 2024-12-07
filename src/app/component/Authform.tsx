@@ -23,9 +23,6 @@ export default function Authform({ type }: { type: string }) {
     defaultValues: {
       firstName: "",
       lastName: "",
-      address1: "",
-      state: "",
-      dob: "",
       email: "",
       password: "",
     },
@@ -56,12 +53,13 @@ export default function Authform({ type }: { type: string }) {
 
   return (
     <div
-  className="relative flex flex-col items-center justify-center w-screen h-screen bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')]"
+  className="relative flex flex-col items-center justify-center w-screen h-screen  bg-cover bg-center bg-no-repeat bg-[url('https://via.placeholder.com/1920x1080/000000/FFFFFF?text=Shop+With+Style')] overflow-hidden max-sm:h-[85vh]"
 >
+<h2 className='text-white text-2xl'>Welcome to Xclux</h2>
   <div className="w-full lg:w-[40%] md:w-[80%] flex items-center px-8 lg:px-10 bg-white shadow-md rounded-lg p-6 max-sm:px-4 max-sm:rounded-none max-sm:shadow-none max-sm:h-screen max-sm:overflow-y-auto">
     <div className="w-full max-w-[100%]">
       {/* Title */}
-      <h2 className="text-[30px] lg:text-3xl font-bold text-black mb-3 max-sm:mb-3 text-center max-sm:text-3xl max-sm:leading-tight max-sm:my-[51px]">
+      <h2 className="text-[30px] lg:text-3xl font-bold text-black mb-3 max-sm:mb-3 text-center max-sm:text-3xl max-sm:leading-tight ">
         {user ? (
           <WelcomeModal />
         ) : type === "sign-in" ? (
@@ -105,13 +103,13 @@ export default function Authform({ type }: { type: string }) {
                       label="Last Name"
                     />
                   </div>
-                  <CustomInput
+                  {/* <CustomInput
                     control={form.control}
                     name="address1"
                     placeHolder="Enter your specific address"
                     label="Address"
-                  />
-                  <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
+                  /> */}
+                  {/* <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
                     <CustomInput
                       control={form.control}
                       name="state"
@@ -124,7 +122,7 @@ export default function Authform({ type }: { type: string }) {
                       placeHolder="YYYY-MM-DD"
                       label="Date of Birth"
                     />
-                  </div>
+                  </div> */}
                 </>
               )}
 
