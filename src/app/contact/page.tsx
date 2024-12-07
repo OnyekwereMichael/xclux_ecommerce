@@ -1,31 +1,35 @@
 'use client'
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
+import { Loader } from "lucide-react";
 
 const ContactUs = () => {
   const form = useRef<HTMLFormElement | null>(null);
-  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     if (form.current) {
-      emailjs
-        .sendForm("service_2a3nvfj", "template_2pf78fg", form.current, {
-          publicKey: "O-r2QUaEJRNUXmAWv",
-        })
-        .then(
-          () => {
-            console.log("SUCCESS!");
-            console.log("Message Sent");
-            toast.success("Message Sent", {
-              duration: 5000,
-            });
-          },
-          (error) => {
-            console.log("FAILED...", error.text);
-          }
+      try {
+        await emailjs.sendForm(
+          "service_2a3nvfj",
+          "template_2pf78fg",
+          form.current,
+          { publicKey: "O-r2QUaEJRNUXmAWv" }
         );
+        toast.success("Message Sent", {
+          duration: 5000,
+        });
+      } catch (error) {
+        console.error("FAILED...", error);
+        toast.error("Failed to send message.");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -135,11 +139,13 @@ const ContactUs = () => {
                 className="w-full mt-1 px-2 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black/70"
               ></textarea>
             </div>
-            <input
+            <button
               type="submit"
-              value="Send"
-              className="w-full bg-black text-white text-[17px] py-3 rounded-md hover:bg-black/90 transition duration-300 cursor-pointer"
-            />
+              disabled={loading}
+              className="w-full bg-black text-white text-[17px] py-3 rounded-md hover:bg-black/90 transition duration-300 cursor-pointer flex justify-center items-center"
+            >
+              {loading ? <Loader className="animate-spin" /> : "Send"}
+            </button>
           </form>
         </div>
       </div>

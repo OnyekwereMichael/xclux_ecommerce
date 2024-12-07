@@ -1,34 +1,30 @@
-'use client';
-
-import React, { MouseEvent } from 'react';
+'use client'
+import React, { useState, MouseEvent } from 'react';
 import { AiOutlineShopping } from 'react-icons/ai';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from '../../components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from '../../components/ui/sheet';
 import { useShoppingCart } from 'use-shopping-cart';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
+import { Loader2 } from 'lucide-react';
 
 const ShoppingCartModal: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false); // Manage loading state
   const {
-    cartCount = 0, 
+    cartCount = 0,
     shouldDisplayCart,
     handleCartClick,
-    cartDetails = {}, 
+    cartDetails = {},
     removeItem,
-    totalPrice = 0, 
+    totalPrice = 0,
     redirectToCheckout,
   } = useShoppingCart();
 
   // Handle redirect to checkout
   const handleCheckout = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    setIsLoading(true); 
     try {
-      const result = await redirectToCheckout();
-      console.log(result);
+      await redirectToCheckout();
       toast.success('Moving to Checkout!', {
         position: 'bottom-center',
         duration: 3000,
@@ -36,6 +32,8 @@ const ShoppingCartModal: React.FC = () => {
       });
     } catch (error) {
       console.error('Checkout error:', error);
+    } finally {
+      setIsLoading(false); 
     }
   };
 
@@ -87,10 +85,7 @@ const ShoppingCartModal: React.FC = () => {
                             <button
                               type="button"
                               className="font-medium text-black hover:text-black/80"
-                              onClick={
-                                () => removeItem(entry.id)
-                                
-                              }
+                              onClick={() => removeItem(entry.id)}
                             >
                               Remove
                             </button>
@@ -114,10 +109,20 @@ const ShoppingCartModal: React.FC = () => {
 
               <div className="mt-6">
                 <button
-                  className="w-full h-[50px] bg-black text-white py-2 px-4 rounded-md hover:bg-black/80"
+                  className={`w-full h-[50px] bg-black text-white py-2 px-4 rounded-md flex items-center justify-center gap-2 hover:bg-black/80 ${
+                    isLoading ? 'opacity-70' : ''
+                  }`}
                   onClick={handleCheckout}
+                  disabled={isLoading} 
                 >
-                  Checkout
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="animate-spin h-5 w-5" /> {/* Spinner */}
+                      Processing...
+                    </>
+                  ) : (
+                    'Checkout'
+                  )}
                 </button>
               </div>
 
